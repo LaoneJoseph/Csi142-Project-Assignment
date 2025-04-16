@@ -1,6 +1,7 @@
 public class SC_sorter {
     
-    public static void selectionSortByName(Products[] arr) {
+    //selection sort by name
+    public static void selectionSortByNameProducts(Products[] arr) {
         for (int i = 0; i < products.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < products.length; j++) {
@@ -14,7 +15,8 @@ public class SC_sorter {
         }
     }
 
-    public static void selectionSortByPrice(Products[] arr) {
+    //selection sort by price
+    public static void selectionSortByPriceProducts(Products[] arr) {
         for (int i = 0; i < products.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < products.length; j++) {
@@ -28,7 +30,8 @@ public class SC_sorter {
         }
     }
 
-    public static void insertionSortByExpiryDate(Products[] arr) {
+    //insertion sort by expiryDate
+    public static void insertionSortByExpiryDateProducts(Products[] arr) {
         for (int i = 1; i < products.length; i++) {
             Product key = products[i];
             String keyDate = key.getExpDate();
@@ -42,71 +45,37 @@ public class SC_sorter {
         }
     }
 
-    public static int binarySearchByName(Product[] products, int left, int right, String name) {
-        if (right >= left) {
-            int mid = left + (right - left) / 2;
-            int comparison = products[mid].getName().compareToIgnoreCase(name);
-            
-            if (comparison == 0) {
-                return mid;
-            }
+    //linear search by brand
+    public static int linearSearchByBrand (Products[]arr, String targetBrand){
+        
+        for( int i=0; i < arr.length; i++){
 
-            if (comparison > 0) {
-                return binarySearchByName(products, left, mid - 1, name);
-            }
-
-            return binarySearchByName(products, mid + 1, right, name);
-        }
-        return -1;
-    }
-
-    public static int linearSearchByBrand(Products[] arr, String targetBrand) {
-        for (int i = 0; i < products.length; i++) {
-            if (products[i].getBrand().equals(targetBrand)) {
-                return i;
-            }
-        }
-        return -1;
-    }    
-
-    public static void selectionSortByStoreBrand(OnlineStore[] stores) {
-        for (int i = 0; i < stores.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < stores.length; j++) {
-                if (stores[j].getBrandName().compareToIgnoreCase(stores[minIndex].getBrandName()) < 0) {
-                    minIndex = j;
-                }
-            }
-            OnlineStore temp = stores[minIndex];
-            stores[minIndex] = stores[i];
-            stores[i] = temp;
-        }
-    }
-
-    public static int linearSearchByStoreBrand(OnlineStore[] stores, String brandName) {
-        for (int i = 0; i < stores.length; i++) {
-            if (stores[i].getBrandName().equalsIgnoreCase(brandName)) {
+            if(arr[i].getBrand().equals(targetBrand)){
                 return i;
             }
         }
         return -1;
     }
-    
-    public static int binarySearchByStoreName(OnlineStore[] stores, int left, int right, String brandName) {
-        if (right >= left) {
-            int mid = left + (right - left) / 2;
-            int comparison = stores[mid].getBrandName().compareToIgnoreCase(brandName);
-            
-            if (comparison == 0) {
-                return mid;
-            }
 
-            if (comparison > 0) {
-                return binarySearchByStoreName(stores, left, mid - 1, brandName);
-            }
-
-            return binarySearchByStoreName(stores, mid + 1, right, brandName);
+    //recursive binary search by productID
+    public static int binarySearchRecursiveByProductID(Products []arr, int targetproductID, int low, int high){
+        if (low > high ){
+          return -1 ;
         }
-        return -1;
-    }
+  
+        int mid = (low + high)/2;
+  
+        if(arr[mid].get() == targetproductID){
+          return mid;
+        }else if (arr[mid].getproductID() < targetproductID){
+          return binarySearchRecursiveByProductID(arr, targetproductID, mid + 1, low);
+        }else{
+          return binarySearchRecursiveByProductID(arr, targetproductID, mid - 1,high);
+        }
+      }
 }
+  
+
+
+
+          
