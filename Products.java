@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Products extends FaceProductsBrands {
     private String name;
-    private int productID;
+    private int productid;
     private String productionCompany;
     private String productionPlace;
     private String barcode;
@@ -11,11 +11,11 @@ public class Products extends FaceProductsBrands {
     private String expiry;
 
     public Products(String brand, String portalPage, double lowestPrice, double highestPrice,
-                    String name, int productID, String productionCompany, String productionPlace, String barcode,
+                    String name, int productid, String productionCompany, String productionPlace, String barcode,
                     double price, String productionDate, String expiry) throws NegativePriceException {
         super(brand, portalPage, lowestPrice, highestPrice);
         this.name = name;
-        this.productID = productID;
+        this.productid = productid;
         this.productionCompany = productionCompany;
         this.productionPlace = productionPlace;
         this.barcode = barcode;
@@ -30,7 +30,7 @@ public class Products extends FaceProductsBrands {
     }
  
     public int getProductID(){
-        return productID;
+        return productid;
     }
 
     public String getProductionCompany() {
@@ -63,7 +63,7 @@ public class Products extends FaceProductsBrands {
     }
 
     public void setProductID(int productID){
-        this.productID = productID;
+        this.productid = productid;
     }
     
     public void setProductionCompany(String productionCompany) {
