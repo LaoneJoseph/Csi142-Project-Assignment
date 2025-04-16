@@ -8,11 +8,11 @@ public class Products extends FaceProductsBrands {
     private String barcode;
     private double price;
     private String productionDate;
-    private String expiry;
+    private String expiryDate;
 
     public Products(String brand, String portalPage, double lowestPrice, double highestPrice,
                     String name, int productID, String productionCompany, String productionPlace, String barcode,
-                    double price, String productionDate, String expiry) throws NegativePriceException {
+                    double price, String productionDate, String expiryDate) throws NegativePriceException {
         super(brand, portalPage, lowestPrice, highestPrice);
         this.name = name;
         this.productID = productID;
@@ -21,7 +21,7 @@ public class Products extends FaceProductsBrands {
         this.barcode = barcode;
         setPrice(price);
         this.productionDate = productionDate;
-        this.expiry = expiry;
+        this.expiryDate = expiryDate;
     }
 
     // Getters
@@ -53,8 +53,8 @@ public class Products extends FaceProductsBrands {
         return productionDate;
     }
 
-    public String getExpiry() {
-        return expiry;
+    public String getExpiryDate() {
+        return expiryDate;
     }
 
     // Setters
@@ -90,7 +90,7 @@ public class Products extends FaceProductsBrands {
     }
 
     public void setExpiry(String expiry) {
-        this.expiry = expiry;
+        this.expiryDate = expiryDate;
     }
 
     @Override
