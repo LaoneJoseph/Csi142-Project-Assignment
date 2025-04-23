@@ -13,7 +13,7 @@ public class ProjectMain {
         products.add(new Products("Nivea", "nivea.com", 11.0, 28.0, "Cleanser", "CompanyW", "France", "98765", 18.25, "2024-05-05", "2026-05-05"));
 
 
-        System.out.println("\n--- Initial Product List ---");
+        System.out.println("\n--- Initial Product List -hello--");
         printProducts(products);
       
         List<Products> sortedByPrice = new ArrayList<>(products); 
