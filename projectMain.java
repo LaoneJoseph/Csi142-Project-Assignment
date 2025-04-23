@@ -26,17 +26,20 @@ public class ProjectMain {
 
         System.out.println("\n--- Initial Product List ---");
         printProducts(products);
-      
+
+        //selection sort by price
         List<Products> sortedByPrice = new ArrayList<>(products); 
         Sorter.selectionSortByPrice(sortedByPrice);
         System.out.println("\n--- Products Sorted by Price (Selection Sort) ---");
         printProducts(sortedByPrice);
 
+        //selection sort by name
         List<Products> sortedByName = new ArrayList<>(products);  
         Sorter.selectionSortByName(sortedByName);
         System.out.println("\n--- Products Sorted by Name (Selection Sort) ---");
         printProducts(sortedByName);
 
+        //recursive searcch by product id
          int targetproductID = 12345;
         int recursiveIndex = SC_Sorter.recursiveSearchByProductID(Products, targetProductID, 0, Products.length -1);
 
@@ -46,8 +49,15 @@ public class ProjectMain {
             System.out.println("Target " + targetProductID + " found at index: " + recursiveIndex);
         }
 
-        
-
+        //linear search by brand
+        public static int linearSearchByBrand(Products[] arr, String targetBrand) {
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].getBrand().equals(targetBrand)) {
+                    return i;
+                }
+            }
+            return -1;
+         }
 
         int choice;
         do {
@@ -107,6 +117,22 @@ public class ProjectMain {
         in.close();
         System.out.println("Have reached the end. Have a great day!");
     }
+
+    //invalid brand exception
+    try{products.setBrand(Satiskin);}
+        catch(InvalidBrandException e){
+            System.out.printf("Error: " + e.getMessage());
+        }
+        System.out.printf("Brand name: " + products.getBrand());
+
+    //invalid payment method
+    BuyPayDelivery method = new BuyPayMethod("Ewallet", "P20.00", "Gaborone", "Katlo", "katlo@gmail.com", "Katlo", 2023001;)
+    try{method.setPaymentMethod(CashSend);}
+        catch(InvalidPaymentMethodException e){
+            System.out.printf("Error: " + e.getMessage());
+        }
+        System.out.printf("Payment: " + method.getPaymentMethod());
+
     
     private static void printProducts(List<Products> products) {
         for (int i = 0; i < products.size(); i++) {
