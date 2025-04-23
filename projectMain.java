@@ -37,6 +37,17 @@ public class ProjectMain {
         System.out.println("\n--- Products Sorted by Name (Selection Sort) ---");
         printProducts(sortedByName);
 
+         int targetproductID = 12345;
+        int recursiveIndex = SC_Sorter.recursiveSearchByProductID(Products, targetProductID, 0, Products.length -1);
+
+        if (recursiveIndex == -1) {
+            System.out.println("Target " + targetProductID + " not found in the array.");
+        } else {
+            System.out.println("Target " + targetProductID + " found at index: " + recursiveIndex);
+        }
+
+        
+
 
         int choice;
         do {
