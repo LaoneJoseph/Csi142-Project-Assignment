@@ -95,8 +95,9 @@ public class ProjectMain {
 
         in.close();
         System.out.println("Have reached the end. Have a great day!");
+    }
     
-    private  printProducts(List<Products> products) {
+    private static void printProducts(List<Products> products) {
         for (int i = 0; i < products.size(); i++) {
             Products product = products.get(i);
             System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: " + product.getBrand());
