@@ -6,103 +6,124 @@ public class ProjectMain {
 
     public static void main(String[] args) {
 
-         // Check command-line arg for "buy mode"
+        // Check command-line arg for "buy mode"
         boolean buyMode = false;
         if (args.length > 0 && args[0].equalsIgnoreCase("Buy")) {
             buyMode = true;
             System.out.println("[Buy Mode Enabled]");
         }
-        
-        Scanner in = new Scanner(System.in);
-        
-        // Create a list of products
-        List<Products> products = new ArrayList<>();
-        products.add(new Products("Garnier", "garnier.com", 10.0, 25.0, "Face Wash", "CompanyX", "USA", "12345", 15.50, "2024-01-15", "2026-01-15"));
-        products.add(new Products("PortiaM", "portiaM.com", 5.0, 18.0, "Sunscreen", "CompanyY", "Canada", "67890", 12.00, "2024-02-20", "2026-02-20"));
-        products.add(new Products("CeraVe", "cerave.com", 12.0, 30.0, "Moisturizer", "CompanyZ", "UK", "13579", 22.75, "2024-03-25", "2026-03-25"));
-        products.add(new Products("CetaPhil", "cetaphil.com", 8.0, 20.0, "Toner", "CompanyX", "USA", "24680", 9.99, "2024-04-30", "2026-04-30"));
-        products.add(new Products("Nivea", "nivea.com", 11.0, 28.0, "Cleanser", "CompanyW", "France", "98765", 18.25, "2024-05-05", "2026-05-05"));
 
+        Scanner in = new Scanner(System.in);
+
+        // Create a list of products with correct constructor parameters
+        List<Products> products = new ArrayList<>();
+        try {
+            products.add(new Products("Garnier", 1, 10.0, 25.0, "Face Wash", 12345, "CompanyX", "USA", "12345", 15.50,
+                    "2024-01-15", "2026-01-15"));
+            products.add(new Products("PortiaM", 2, 5.0, 18.0, "Sunscreen", 67890, "CompanyY", "Canada", "67890", 12.00,
+                    "2024-02-20", "2026-02-20"));
+            products.add(new Products("CeraVe", 3, 12.0, 30.0, "Moisturizer", 13579, "CompanyZ", "UK", "13579", 22.75,
+                    "2024-03-25", "2026-03-25"));
+            products.add(new Products("CetaPhil", 4, 8.0, 20.0, "Toner", 24680, "CompanyX", "USA", "24680", 9.99,
+                    "2024-04-30", "2026-04-30"));
+            products.add(new Products("Nivea", 5, 11.0, 28.0, "Cleanser", 98765, "CompanyW", "France", "98765", 18.25,
+                    "2024-05-05", "2026-05-05"));
+        } catch (Exception e) {
+            System.out.println("Error creating products: " + e.getMessage());
+            in.close();
+            return;
+        }
 
         System.out.println("\n--- Initial Product List ---");
         printProducts(products);
 
-        //selection sort by price
-        List<Products> sortedByPrice = new ArrayList<>(products); 
-        Sorter.selectionSortByPrice(sortedByPrice);
+        // Convert List to array for sorting and searching
+        Products[] productsArray = products.toArray(new Products[0]);
+
+        // Selection sort by price
+        Products[] sortedByPrice = productsArray.clone();
+        SC_sorter.selectionSortByPrice(sortedByPrice);
         System.out.println("\n--- Products Sorted by Price (Selection Sort) ---");
         printProducts(sortedByPrice);
 
-        //selection sort by name
-        List<Products> sortedByName = new ArrayList<>(products);  
-        Sorter.selectionSortByName(sortedByName);
+        // Selection sort by name
+        Products[] sortedByName = productsArray.clone();
+        SC_sorter.selectionSortByName(sortedByName);
         System.out.println("\n--- Products Sorted by Name (Selection Sort) ---");
         printProducts(sortedByName);
 
-        //recursive searcch by product id
-         int targetproductID = 12345;
-        int recursiveIndex = SC_Sorter.recursiveSearchByProductID(Products, targetProductID, 0, Products.length -1);
-
-        if (recursiveIndex == -1) {
-            System.out.println("Target " + targetProductID + " not found in the array.");
-        } else {
-            System.out.println("Target " + targetProductID + " found at index: " + recursiveIndex);
-        }
-
-        //linear search by brand
-        public static int linearSearchByBrand(Products[] arr, String targetBrand) {
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i].getBrand().equals(targetBrand)) {
-                    return i;
-                }
-            }
-            return -1;
-         }
-
         int choice;
         do {
-            // Display menu
-            System.out.println("\n=== Skin car online store Menu ===");
+            // Display enhanced menu
+            System.out.println("\n=== Skin Care Online Store Menu ===");
             System.out.println("1. Display all products");
-            System.out.println("2. Exit");
+            System.out.println("2. Search product by ID (Binary Search)");
+            System.out.println("3. Search product by brand (Linear Search)");
+            System.out.println("4. Exit");
             if (buyMode) {
-                // A feature only accessible in buy mode
-                System.out.println("3. Place order");
+                System.out.println("5. Place order (Buy Mode Only)");
             }
             System.out.print("Enter your choice: ");
 
             choice = in.nextInt();
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
                     System.out.println("--- All Products ---");
                     printProducts(products);
                     break;
 
                 case 2:
-                    System.out.println("Exiting Skin Care Online store...");
+                    System.out.print("Enter product ID to search: ");
+                    int searchId = in.nextInt();
+                    int foundIndex = SC_sorter.binarySearchRecursiveByProductID(
+                            sortedByPrice, searchId, 0, sortedByPrice.length - 1);
+
+                    if (foundIndex != -1) {
+                        System.out.println("Product found:");
+                        System.out.println(sortedByPrice[foundIndex]);
+                    } else {
+                        System.out.println("Product with ID " + searchId + " not found.");
+                    }
                     break;
 
                 case 3:
-                    // This case is only relevant if buyMode is true
+                    System.out.print("Enter brand to search: ");
+                    in.nextLine(); 
+                    String searchBrand = in.nextLine();
+                    int linearIndex = linearSearchByBrand(productsArray, searchBrand);
+
+                    if (linearIndex != -1) {
+                        System.out.println("Product found:");
+                        System.out.println(productsArray[linearIndex]);
+                    } else {
+                        System.out.println("Brand '" + searchBrand + "' not found.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Exiting Skin Care Online store...");
+                    break;
+
+                case 5:
                     if (buyMode) {
                         // Get order details from the user
                         System.out.print("Enter the product brand: ");
-                        String brand = in.next();  // Assuming single word for brand
-                        System.out.print("Enter the product product name: ");
-                        String name = in.next();   // Assuming single word for product name
+                        String brand = in.next(); 
+                        System.out.print("Enter the product name: ");
+                        String name = in.next(); 
                         System.out.print("Enter the product price: ");
                         double price = in.nextDouble();
-                        System.out.print("Enter the product Name of the buyer: ");
-                        String payerName = in.next(); // Assuming single word for buyer name
-                        System.out.print("Enter the product Email: ");
+                        System.out.print("Enter the buyer's name: ");
+                        String payerName = in.next(); 
+                        System.out.print("Enter the buyer's email: ");
                         String payerEmail = in.next();
-                        System.out.print("Enter the product cardHolder: ");
-                        String cardHolder = in.next(); // Assuming single word for card holder
-                        System.out.print("Enter the product cardNumber: ");
+                        System.out.print("Enter the card holder name: ");
+                        String cardHolder = in.next(); 
+                        System.out.print("Enter the card number: ");
                         String cardNumber = in.next();
 
-                        System.out.println("Order placed successfully!");  // Just a placeholder for now
+                        System.out.println("Order placed successfully!");
                     } else {
                         System.out.println("Invalid choice.");
                     }
@@ -112,32 +133,36 @@ public class ProjectMain {
                     System.out.println("Invalid choice. Please try again.");
                     break;
             }
-        } while(choice != 2);  // Changed to exit on 2
+        } while (choice != 4);
 
         in.close();
-        System.out.println("Have reached the end. Have a great day!");
+        System.out.println("Thank you for using our system!");
     }
 
-    //invalid brand exception
-    try{products.setBrand(Satiskin);}
-        catch(InvalidBrandException e){
-            System.out.printf("Error: " + e.getMessage());
+    // Linear search by brand
+    public static int linearSearchByBrand(Products[] arr, String targetBrand) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getBrand().equalsIgnoreCase(targetBrand)) {
+                return i;
+            }
         }
-        System.out.printf("Brand name: " + products.getBrand());
+        return -1;
+    }
 
-    //invalid payment method
-    BuyPayDelivery method = new BuyPayMethod("Ewallet", "P20.00", "Gaborone", "Katlo", "katlo@gmail.com", "Katlo", 2023001;)
-    try{method.setPaymentMethod(CashSend);}
-        catch(InvalidPaymentMethodException e){
-            System.out.printf("Error: " + e.getMessage());
-        }
-        System.out.printf("Payment: " + method.getPaymentMethod());
-
-    
+    // Print products method overloaded for List and array
     private static void printProducts(List<Products> products) {
         for (int i = 0; i < products.size(); i++) {
             Products product = products.get(i);
-            System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: " + product.getBrand());
+            System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: "
+                    + product.getBrand());
+        }
+    }
+
+    private static void printProducts(Products[] products) {
+        for (int i = 0; i < products.length; i++) {
+            Products product = products[i];
+            System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: "
+                    + product.getBrand());
         }
     }
 }
