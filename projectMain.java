@@ -20,13 +20,13 @@ public class ProjectMain {
         try {
             products.add(new Products("Garnier", 1, 10.0, 25.0, "Face Wash", 12345, "CompanyX", "USA", "12345", 15.50,
                     "2024-01-15", "2026-01-15"));
-            products.add(new Products("PortiaM", 2, 5.0, 18.0, "Sunscreen", 67890, "CompanyY", "Canada", "67890", 12.00,
+            products.add(new Products("PortiaM", 2, 5.0, 18.0, "Face cotton pads", 67890, "CompanyY", "Canada", "67890", 12.00,
                     "2024-02-20", "2026-02-20"));
             products.add(new Products("CeraVe", 3, 12.0, 30.0, "Moisturizer", 13579, "CompanyZ", "UK", "13579", 22.75,
                     "2024-03-25", "2026-03-25"));
-            products.add(new Products("CetaPhil", 4, 8.0, 20.0, "Toner", 24680, "CompanyX", "USA", "24680", 9.99,
+            products.add(new Products("CetaPhil", 4, 8.0, 20.0, "Face cream", 24680, "CompanyX", "USA", "24680", 9.99,
                     "2024-04-30", "2026-04-30"));
-            products.add(new Products("Nivea", 5, 11.0, 28.0, "Cleanser", 98765, "CompanyW", "France", "98765", 18.25,
+            products.add(new Products("Clicks", 5, 11.0, 28.0, "Face bar soap", 98765, "CompanyW", "France", "98765", 18.25,
                     "2024-05-05", "2026-05-05"));
         } catch (Exception e) {
             System.out.println("Error creating products: " + e.getMessage());
