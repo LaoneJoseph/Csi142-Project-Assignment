@@ -62,7 +62,8 @@ public class ProjectMain {
             System.out.println("4. Exit");
             if (buyMode) {
                 System.out.println("5. Place order (Buy Mode Only)");
-            }
+            } 
+    
             System.out.print("Enter your choice: ");
 
             choice = in.nextInt();
