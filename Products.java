@@ -1,4 +1,13 @@
-
+/**Authors; Laone Joseph 202302410
+            Pearl John 202304426
+            Princess Maboshe 202304582
+            Kabo Moseki 202301582
+            Katlego Pansiri 202405134
+   file name; Products.java
+   To compile; javac Products.java
+   To execute; java Products
+   Description; List the products' features sold in the online store
+    */
 
 public class Products extends FaceProductsBrands {
     private String name;
