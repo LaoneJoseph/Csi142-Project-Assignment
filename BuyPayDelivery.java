@@ -3,6 +3,9 @@
             Princess Maboshe 202304582
             Kabo Moseki 202301582
             Katlego Pansiri 202405134
+ File name;BuyPayDelvery.java
+ To compile; javac BuyPayDelivery.java
+ To run; java BuyPayDelivery
  Description; For the current scope of the assignment,BuyPayDelivery.java file is not a necessary component.
             However, it has been proactively developed to support potential future enhancements and feature additions.
 */
