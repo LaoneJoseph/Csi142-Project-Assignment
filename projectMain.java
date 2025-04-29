@@ -154,16 +154,18 @@ public class projectMain {
     private static void printProducts(List<Products> products) {
         for (int i = 0; i < products.size(); i++) {
             Products product = products.get(i);
-            System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: "
-                    + product.getBrand());
+            System.out.println((i + 1) + ". " + product.getName() + "\n     - Price: " + product.getPrice() +"\n     -Product ID: "+ product.getProductID()+ "\n     - Brand: "
+                    + product.getBrand() +"\n     -Production date: "+product.getProductionDate() +"\n     -ExpiryDate: "+product.getExpiryDate()+"\n     -Production company: "+ product.getProductionCompany()+ "\n     -Produced in: "+ product.getProductionCompany());
+        
         }
     }
 
     private static void printProducts(Products[] products) {
         for (int i = 0; i < products.length; i++) {
             Products product = products[i];
-            System.out.println((i + 1) + ". " + product.getName() + " - Price: " + product.getPrice() + " - Brand: "
-                    + product.getBrand());
+           System.out.println((i + 1) + ". " + product.getName() + " \n     - Price: " + product.getPrice() +"\n     -Product ID: "+ product.getProductID() + "\n     - Brand: "
+                    + product.getBrand()  +"\n     -Production date: "+product.getProductionDate() +"\n     -ExpiryDate: "+product.getExpiryDate() +"\n     -Production company: "+ product.getProductionCompany()+ "\n     -Produced in: "+ product.getProductionCompany());
+    
         }
     }
 }
