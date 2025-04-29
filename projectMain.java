@@ -1,3 +1,15 @@
+/**Authors; Laone Joseph 202302410
+            Pearl John 202304426
+            Princess Maboshe 202304582
+            Kabo Moseki 202301582
+            Katlego Pansiri 202405134
+   file name; projectMain.java
+   To compile; javac projectMain.java
+   To execute; java projectMain
+   Description;Demonstrates the functionality of the domain
+    */
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
