@@ -42,13 +42,13 @@ public class projectMain {
 
         // Selection sort by price
         Products[] sortedByPrice = productsArray.clone();
-        SC_sorter.selectionSortByPrice(sortedByPrice);
+        SC_sorter.selectionSortByPriceProducts(sortedByPrice);
         System.out.println("\n--- Products Sorted by Price (Selection Sort) ---");
         printProducts(sortedByPrice);
 
         // Selection sort by name
         Products[] sortedByName = productsArray.clone();
-        SC_sorter.selectionSortByName(sortedByName);
+        SC_sorter.selectionSortByNameProducts(sortedByName);
         System.out.println("\n--- Products Sorted by Name (Selection Sort) ---");
         printProducts(sortedByName);
 
