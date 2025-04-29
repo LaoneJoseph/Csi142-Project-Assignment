@@ -9,7 +9,7 @@ public class SC_sorter {
                     minIndex = j;
                 }
             }
-            Product temp = arr[minIndex];
+            Products temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
@@ -24,7 +24,7 @@ public class SC_sorter {
                     minIndex = j;
                 }
             }
-            Product temp = arr[minIndex];
+            Products temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
@@ -33,8 +33,8 @@ public class SC_sorter {
     //insertion sort by expiryDate
     public static void insertionSortByExpiryDateProducts(Products[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            Product key = arr[i];
-            String keyDate = keyDate.getExpiryDate();
+            Products key = arr[i];
+            String keyDate = key.getExpiryDate();
             int j = i - 1;
             
             while (j >= 0 && arr[j].getExpiryDate().compareTo(keyDate) > 0) {
