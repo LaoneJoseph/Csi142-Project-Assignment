@@ -63,7 +63,7 @@ public class Products extends FaceProductsBrands {
     }
 
     public void setProductID(int productID){
-        this.productid = productID;
+        this.productID = productID;
     }
     
     public void setProductionCompany(String productionCompany) {
@@ -89,7 +89,7 @@ public class Products extends FaceProductsBrands {
         this.productionDate = productionDate;
     }
 
-    public void setExpiry(String expiry) {
+    public void setExpiryDate(String expiryDate) {
         this.expiryDate = expiryDate;
     }
 
