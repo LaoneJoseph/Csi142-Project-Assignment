@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProjectMain {
+public class projectMain {
 
     public static void main(String[] args) {
 
@@ -92,7 +92,7 @@ public class ProjectMain {
                     System.out.print("Enter brand to search: ");
                     in.nextLine(); 
                     String searchBrand = in.nextLine();
-                    int linearIndex = linearSearchByBrand(productsArray, searchBrand);
+                    int linearIndex = SC_sorter.linearSearchByBrand(productsArray, searchBrand);
 
                     if (linearIndex != -1) {
                         System.out.println("Product found:");
