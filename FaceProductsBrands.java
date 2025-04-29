@@ -20,7 +20,7 @@
 
          public void setBrand(String brand){this.brand = brand;}
          public void setPortalPage(int portalPage){this.portalPage = portalPage;}
-         public void setLowestPrice(double LowestPrice){this.LowestPrice = LowestPage;}
+         public void setLowestPrice(double LowestPrice){this.LowestPrice = LowestPrice;}
          public void setHighestPrice(double HighestPrice){this.HighestPrice = HighestPrice;}
 
          @Override
