@@ -10,7 +10,7 @@ public class Products extends FaceProductsBrands {
     private String productionDate;
     private String expiryDate;
 
-    public Products(String brand, String portalPage, double lowestPrice, double highestPrice,
+    public Products(String brand, int portalPage, double lowestPrice, double highestPrice,
                     String name, int productID, String productionCompany, String productionPlace, String barcode,
                     double price, String productionDate, String expiryDate) throws NegativePriceException {
         super(brand, portalPage, lowestPrice, highestPrice);
