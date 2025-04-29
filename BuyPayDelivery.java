@@ -1,3 +1,12 @@
+/**Authors; Laone Joseph 202302410
+            Pearl John 202304426
+            Princess Maboshe 202304582
+            Kabo Moseki 202301582
+            Katlego Pansiri 202405134
+ Description; For the current scope of the assignment,BuyPayDelivery.java file is not a necessary component.
+            However, it has been proactively developed to support potential future enhancements and feature additions.
+*/
+
 public class BuyPayDelivery{
 
     private String paymentMethod;
