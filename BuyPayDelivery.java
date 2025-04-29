@@ -27,13 +27,13 @@ public class BuyPayDelivery{
     public String getPayerName(){return payerName;}
     public String getPayerEmail(){return payerEmail;}
     public String getCardHolder(){return cardHolder;}
-    public int getCardNumber(){return cardHolder;}
+    public int getCardNumber(){return cardNumber;}
 
     public void setPaymentMethod(String paymentMethod){this.paymentMethod = paymentMethod;}
-    public void setDeliveryCosts(int deliveryCosts){this.deliveryCosts = deliveryCosts;}
+    public void setDeliveryCosts(double deliveryCosts){this.deliveryCosts = deliveryCosts;}
     public void setDeliveryPlace(String deliveryPlace){this.deliveryPlace = deliveryPlace;}
     public void setPayerName(String payerName){this.payerName = payerName;}
-    public void setPayerEmail(Sting payerEmail){this.payerEmail = payerEmail;}
+    public void setPayerEmail(String payerEmail){this.payerEmail = payerEmail;}
     public void setCardHolder(String cardHolder){this.cardHolder = cardHolder;}
     public void setCardNumber(int cardNumber){this.cardNumber = cardNumber;}
 
