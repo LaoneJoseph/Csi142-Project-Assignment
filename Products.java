@@ -6,7 +6,7 @@
    file name; Products.java
    To compile; javac Products.java
    To execute; java Products
-   Description; List the products' features sold in the online store
+   Description; List the products' information sold in the online store
     */
 
 public class Products extends FaceProductsBrands {
