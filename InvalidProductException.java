@@ -4,8 +4,8 @@
             Kabo Moseki 202301582
             Katlego Pansiri 202405134
    file name; InvalidProductExeception.java
-   To compile; InvalidProductException.java
-   To execute; InvalidProductException
+   To compile; javac InvalidProductException.java
+   To execute; java InvalidProductException
    Description; For handle errors for invalid product name input functionality
     */
 
