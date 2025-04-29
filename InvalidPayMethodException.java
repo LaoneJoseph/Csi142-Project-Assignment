@@ -4,8 +4,8 @@
             Kabo Moseki 202301582
             Katlego Pansiri 202405134
    file name; InvalidPayMethodExeception.java
-   To compile; InvalidPayMethodException.java
-   To execute; InvalidPayMethodException
+   To compile; javac InvalidPayMethodException.java
+   To execute; java InvalidPayMethodException
    Description; For future enhancements for invalid payment method functionality
     */
 
