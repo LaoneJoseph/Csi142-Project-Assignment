@@ -118,7 +118,7 @@ public class projectMain {
                     System.out.println("Exiting Skin Care Online store...");
                     break;
 
-                case 5:
+                case 5:                        //for future enhancements
                     if (buyMode) {
                         // Get order details from the user
                         System.out.print("Enter the product brand: ");
