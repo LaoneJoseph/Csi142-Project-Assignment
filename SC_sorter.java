@@ -2,46 +2,46 @@ public class SC_sorter {
     
     //selection sort by name
     public static void selectionSortByNameProducts(Products[] arr) {
-        for (int i = 0; i < products.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < products.length; j++) {
-                if (products[j].getName().compareToIgnoreCase(products[minIndex].getName()) < 0) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j].getName().compareToIgnoreCase(arr[minIndex].getName()) < 0) {
                     minIndex = j;
                 }
             }
-            Product temp = products[minIndex];
-            products[minIndex] = products[i];
-            products[i] = temp;
+            Product temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
     }
 
     //selection sort by price
     public static void selectionSortByPriceProducts(Products[] arr) {
-        for (int i = 0; i < products.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < products.length; j++) {
-                if (products[j].getPrice() < products[minIndex].getPrice()) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j].getPrice() < arr[minIndex].getPrice()) {
                     minIndex = j;
                 }
             }
-            Product temp = products[minIndex];
-            products[minIndex] = products[i];
-            products[i] = temp;
+            Product temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
     }
 
     //insertion sort by expiryDate
     public static void insertionSortByExpiryDateProducts(Products[] arr) {
-        for (int i = 1; i < products.length; i++) {
-            Product key = products[i];
-            String keyDate = key.getExpDate();
+        for (int i = 1; i < arr.length; i++) {
+            Product key = arr[i];
+            String keyDate = keyDate.getExpiryDate();
             int j = i - 1;
             
-            while (j >= 0 && products[j].getExpDate().compareTo(keyDate) > 0) {
-                products[j + 1] = products[j];
+            while (j >= 0 && arr[j].getExpiryDate().compareTo(keyDate) > 0) {
+                arr[j + 1] = arr[j];
                 j = j - 1;
             }
-            products[j + 1] = key;
+            arr[j + 1] = key;
         }
     }
 
@@ -65,10 +65,10 @@ public class SC_sorter {
   
         int mid = (low + high)/2;
   
-        if(arr[mid].get() == targetproductID){
+        if(arr[mid].getProductID() == targetproductID){
           return mid;
-        }else if (arr[mid].getproductID() < targetproductID){
-          return binarySearchRecursiveByProductID(arr, targetproductID, mid + 1, low);
+        }else if (arr[mid].getProductID() < targetproductID){
+          return binarySearchRecursiveByProductID(arr, targetproductID, mid + 1, high);
         }else{
           return binarySearchRecursiveByProductID(arr, targetproductID, mid - 1,high);
         }
